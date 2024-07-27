@@ -1,4 +1,4 @@
-name: Deploy to Amplify
+name: Additionally API Deployment
 
 on:
   push:
@@ -8,7 +8,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: deploy
+    - name: Deploy to AWS Amplify
       run: |
+          echo "Deploying to AWS Amplify"
           URL="${{ secrets.WEBHOOK_URL }}"
           curl -X POST -d {} "$URL" -H "Content-Type: application/json"
+    - name: Status of Deployment
+      run: echo "Completed"
