@@ -1,0 +1,12 @@
+ - name: amplify-preview-actions
+  # You may pin to the exact commit or the version.
+  # uses: yinlinchen/amplify-preview-actions@824ad2d4a38bd6ff86e3345f80c8f9382700bc39
+  uses: yinlinchen/amplify-preview-actions@v1.2
+  with:
+    # GitHub branch name to deploy
+    branch_name: main
+    # amplify command: SUPPORTED: [deploy, delete]
+    amplify_command: deploy
+    # Github comments url
+    comments_url: # optional, default is ${{ github.event.pull_request.comments_url }}
+          
