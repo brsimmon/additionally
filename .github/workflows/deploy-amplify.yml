@@ -1,0 +1,10 @@
+            - name: check-preview-amplify
+  # You may pin to the exact commit or the version.
+  # uses: nobruel/check-preview@9c135583cc3c58e497d788bb60b34ba300108f88
+  uses: nobruel/check-preview@v0.0.1
+  with:
+    # GitHub branch name to deploy
+    preview_amplify_url: main
+    # send a message to the console
+    message: 
+          HTML changes
