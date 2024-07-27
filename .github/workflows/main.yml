@@ -20,4 +20,6 @@ jobs:
         run: amplify configure  # This step might require some interactive setup
 
       - name: Deploy to Amplify
-        run: amplify publish
+        run: |
+          amplify pull dzi29mwn5vu00
+          amplify publish
