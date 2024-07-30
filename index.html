@@ -119,7 +119,7 @@
 
     <div class="container">
 	<form>
-          <button type="button" onclick="gotToCart()">Cart</button>
+          <button id="cart-button">Cart</button>
         </form>
 	
         <div class="product" data-title="Girls Team USA 2024 Gymnastics Leotard" data-description="Girls White Team USA 2024 Olympics Go For Gold Gymnastics Leotard" data-price="19.99">
@@ -166,6 +166,7 @@
         const modalPrice = document.getElementById('modal-price');
         const modalCartButton = document.getElementById('modal-cart-button');
         const span = document.getElementsByClassName('close')[0];
+	const cartButton = document.getElementById('cart-button');
 
         let cart = [];
 
@@ -200,7 +201,7 @@
             modal.style.display = 'none';
         }
 
-	var gotToCart = () => {
+	cartButton.onclick = function() {
             localStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'https://brsimmon.github.io/additionally/checkout.html';	
         }
