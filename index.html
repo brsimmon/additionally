@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Olympics Shop</title>
+    <title>Team USA Olympics Shop</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -14,12 +14,12 @@
             color: #333;
             margin: 0;
             padding: 20px;
-            background-color: #D4AF37;
+            background-color: #0A3161;
         }
         h1 {
             text-align: center;
             font-size: 3em;
-            color: #333;
+            color: #bf0a30;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
         .container {
@@ -53,7 +53,7 @@
         }
         .product h2 {
             font-size: 1.5em;
-            color: #333;
+            color: #bf0a30;
         }
         .product p {
             font-size: 1em;
@@ -91,6 +91,15 @@
             max-width: 500px;
             text-align: center;
         }
+	.modal-content button {
+            background-color: #bf0a30;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
         .close {
             color: #aaa;
             float: right;
@@ -106,31 +115,100 @@
     </style>
 </head>
 <body>
-    <h1>AWS Team USA Olympics Shop</h1>
+    <h1>Team USA Olympics Shop</h1>
     <div class="container">
-        <div class="product" data-title="Women's USWNT Crest T-Shirt" data-description="Women's Nike Black USWNT Crest T-Shirt" data-price="19.99">
-            <img src="https://images.footballfanatics.com/womens-nike-black-uswnt-crest-t-shirt_ss5_p-5136246+pv-2+u-zlpolsp8h2hwxurebhjp+v-zclhpcxm6ovcaq0u1cdl.jpg?_hv=2&w=900" alt="Product Image">
-            <h2>Women's USWNT Crest T-Shirt</h2>
-            <p>Women's Nike Black USWNT/Soccer Crest Ribbed T-Shirt</p>
-            <button>Add to Cart</button>
+        <div class="product" data-title="Girls Team USA 2024 Gymnastics Leotard" data-description="Girls White Team USA 2024 Olympics Go For Gold Gymnastics Leotard" data-price="19.99">
+            <img src="https://images.footballfanatics.com/team-usa/girls-youth-white-team-usa-paris%C2%A02024-summer-olympics-go-for-gold-replica-gymnastics-leotard_ss5_p-201983378+pv-2+u-huc7qvmg6dlw3wh8u6xq+v-4cy5toyqaxna4hnwodae.jpg?_hv=2&w=900" alt="Product Image">
+            <h2>Girls Team USA 2024 Gymnastics Leotard</h2>
+            <p>Girls White Team USA 2024 Olympics Go For Gold Gymnastics Leotard</p>
+            <!-- <button>Add to Cart</button> -->
         </div>
         <div class="product" data-title="Women's Team USA 2024 Olympics T-Shirt" data-description="Women's Fanatics White Team USA 2024 Olympics Primary Logo V-Neck T-Shirt" data-price="29.99">
             <img src="https://images.footballfanatics.com/team-usa/womens-fanatics-white-team-usa-2024-olympics-primary-logo-v-neck-t-shirt_ss5_p-202051743+pv-2+u-9p81j4qvr7pfbj4mylis+v-iuvxrsndxthyzwi3ulv2.jpg?_hv=2&w=900" alt="Product Image">
             <h2>Women's Team USA 2024 Olympics T-Shirt</h2>
             <p>Women's Fanatics White Team USA 2024 Olympics Primary Logo V-Neck T-Shirt</p>
-            <button>Add to Cart</button>
+            <!-- <button>Add to Cart</button> -->
         </div>
-       <!-- <div class="product" data-title="Men's USA Basketball Reversible Practice Jersey" data-description="Men's Mitchell & Ness Michael Jordan Navy USA Basketball Training 1992 Dream Team Authentic Reversible Practice Jersey" data-price="39.99">
+       <div class="product" data-title="Men's USA Basketball Reversible Practice Jersey" data-description="Men's Mitchell & Ness Michael Jordan Navy USA Basketball Training 1992 Dream Team Authentic Reversible Practice Jersey" data-price="39.99">
             <img src="https://images.footballfanatics.com/mens-mitchell-and-ness-michael-jordan-navy-usa-basketball-training-1992-dream-team-authentic-reversible-practice-jersey_pi3461000_altimages_ff_3461196-b9313eab4e3d5a29a0fbalt1_full.jpg?_hv=2&w=900" alt="Product Image">
             <h2>Men's USA Basketball Reversible Practice Jersey</h2>
             <p>Men's Mitchell & Ness Navy USA Basketball 1992 Dream Team Reversible Practice Jersey</p>
-            <button>Add to Cart</button>
+            <!-- <button>Add to Cart</button> -->
         </div>
         <div class="product" data-title="Men's Team USA 2024 Olympics Polo" data-description="Men's Polo Ralph Lauren White Team USA 2024 Summer Olympics Closing Ceremony Polo" data-price="39.99">
             <img src="https://images.footballfanatics.com/team-usa/mens-polo-ralph-lauren-white-team-usa-2024-summer-olympics-closing-ceremony-polo_ss5_p-201567132+pv-1+u-efzanrnhvmlyivad5dfo+v-gxwt5pmnmpsq0yeguu5d.jpg?_hv=2&w=900" alt="Product Image">
             <h2>Men's Team USA 2024 Olympics Polo</h2>
             <p>Men's Polo Ralph Lauren White Team USA 2024 Summer Olympics Closing Ceremony Polo</p>
-            <button>Add to Cart</button>
-        </div> -->
+            <!-- <button>Add to Cart</button> -->
+        </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Product Image" style="max-width:100px;"> <!--- TODO: Change img size -->
+            <h2 id="modal-title">Product Title</h2>
+            <p id="modal-description">Product Description</p>
+            <p id="modal-size">Size: Small</p>
+            <p id="modal-price">Price: $0.00</p>
+            <button id="modal-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        const products = document.querySelectorAll('.product img');
+        const modal = document.getElementById('myModal');
+        const modalImg = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalSize = document.getElementById('modal-size');
+        const modalPrice = document.getElementById('modal-price');
+        const modalCartButton = document.getElementById('modal-cart-button');
+        const span = document.getElementsByClassName('close')[0];
+
+        let cart = [];
+
+        products.forEach(product => {
+            product.onclick = function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                const productElem = this.parentElement;
+                modalTitle.textContent = productElem.getAttribute('data-title');
+                modalDescription.textContent = productElem.getAttribute('data-description');
+                modalPrice.textContent = `Price: $${productElem.getAttribute('data-price')}`;
+                modalCartButton.setAttribute('data-title', productElem.getAttribute('data-title'));
+                modalCartButton.setAttribute('data-price', productElem.getAttribute('data-price'));
+		modalCartButton.setAttribute('img', productElem.getAttribute('img')); <!-- Remove? -->
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        modalCartButton.onclick = function() { <!-- Remove the image when breaking -->
+            const title = this.getAttribute('data-title');
+            const price = parseFloat(this.getAttribute('data-price'));
+	    const image = this.getAttribute('img');
+            cart.push({ title, price, image });
+            alert('Item added to cart');
+            modal.style.display = 'none';
+        }
+
+        const checkoutButton = document.createElement('button');
+        checkoutButton.textContent = 'Checkout';
+        checkoutButton.onclick = function() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = 'https://thedemobro2.github.io/AWS-Olymics-Shop/checkout.html';
+        }
+ 
+        document.body.appendChild(checkoutButton);
+    </script>
 </body>
 </html>
