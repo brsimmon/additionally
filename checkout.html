@@ -67,7 +67,7 @@
             font-size: 1.5em;
             margin-top: 20px;
         }
-        .pay-now-button {
+/*         .pay-now-button {
             width: 50%;
             background-color: #bf0a30;
             color: #fff;
@@ -80,6 +80,18 @@
             display: block;
             margin-top: 20px;
             text-decoration: none;
+        } */
+        .pay-now-button {
+          background-color: #bf0a30;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
         }
     </style>
     
@@ -160,8 +172,10 @@
             </div>
             
             <!-- set button onclick method to call function we defined passing input values as parameters -->
-            <button id="pay-now-button" onclick="callAPI(document.getElementById('name').value)">Pay</button>
-    
+<!--             <button id="pay-now-button" onclick="callAPI(document.getElementById('name').value)">Pay</button> -->
+            
+            <button class="pay-now-button" onclick="callAPI(document.getElementById('name').value)">Pay</button>
+            <input type="button" class="pay-now-button" onclick="callAPI(document.getElementById('name').value)" value="Pay">
         </div>
         <div class="right">
             <h2>Order Summary</h2>
