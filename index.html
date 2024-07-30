@@ -174,7 +174,6 @@
                 modalPrice.textContent = `Price: $${productElem.getAttribute('data-price')}`;
                 modalCartButton.setAttribute('data-title', productElem.getAttribute('data-title'));
                 modalCartButton.setAttribute('data-price', productElem.getAttribute('data-price'));
-		modalCartButton.setAttribute('img', productElem.getAttribute('img')); <!-- Remove? -->
             }
         });
 
@@ -191,8 +190,7 @@
         modalCartButton.onclick = function() { <!-- TODO: Remove the image when breaking -->
             const title = this.getAttribute('data-title');
             const price = parseFloat(this.getAttribute('data-price'));
-	    const image = this.getAttribute('img');
-            cart.push({ title, price, image });
+            cart.push({ title, price });
             alert('Item added to cart');
             modal.style.display = 'none';
         }
